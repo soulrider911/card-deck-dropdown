@@ -1,0 +1,103 @@
+.card-drop {
+  transition: height 0.3s ease-out;
+  position: relative;
+  margin: 0 auto;
+  -webkit-perspective: 800px;
+          perspective: 800px;
+}
+
+.card-drop a {
+  display: block;
+  width: 100%;
+  padding: 0px 24px 0 24px;
+  height: 60px;
+  line-height: 60px;
+  text-decoration: none;
+  color: #217dbb;
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+  transition: all 0.3s ease-out;
+}
+
+.card-drop a i {
+  display: inline-block;
+  width: 20px;
+}
+
+.card-drop > a.toggle {
+  position: relative;
+  z-index: 100;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transform-origin: 50% 0%;
+      -ms-transform-origin: 50% 0%;
+          transform-origin: 50% 0%;
+  transition: .1s linear;
+}
+
+.card-drop > a.toggle:active {
+  -webkit-transform: rotateX(60deg);
+          transform: rotateX(60deg);
+}
+
+.card-drop > a.toggle:active:after {
+  -webkit-transform: rotateX(180deg);
+          transform: rotateX(180deg);
+}
+
+.card-drop > a.toggle:before,
+.card-drop > a.toggle:after {
+  content: "";
+  position: absolute;
+}
+
+.card-drop > a.toggle:before {
+  right: 25px;
+  top: 50%;
+  margin-top: -2.5px;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid rgba(0, 0, 0, 0.8);
+}
+
+.card-drop > a.toggle.active:before {
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.card-drop > a.toggle + div {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  display: block;
+  width: 100%;
+}
+
+.card-drop > a.toggle + div a {
+  margin: 0 auto;
+  transition: all 0.3s ease-out;
+  position: absolute;
+  top: 0;
+  z-index: 0;
+  width: 100%;
+  border-top: none;
+}
+
+.card-drop > a.toggle + div a:hover {
+  background-color: #4aa3df;
+  color: #f3f9fd;
+}
+
+.card-drop > a.toggle + div a.active {
+  color: #fff;
+  background-color: #258cd1;
+  cursor: default;
+}
+
+.card-drop > a.toggle + div.closed a:hover {
+  cursor: default;
+  background-color: #3498db;
+}

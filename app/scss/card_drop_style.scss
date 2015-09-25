@@ -1,0 +1,97 @@
+
+
+// ////////////////////////////////////////////
+// Card Deck
+// ////////////////////////////////////////////
+$primary: #3498db;
+$size: 60px;
+.card-drop{
+	transition: height .3s ease-out;
+	position: relative;
+	margin: 0 auto;
+	perspective: 800px;
+
+  // style all links
+	a{
+		display: block;
+		width: 100%;
+		padding:0px $size / 2.5 0 $size / 2.5;
+		height: $size;
+    line-height: $size;
+		text-decoration: none;
+		color: darken($primary, 10%);
+		background-color: #fafafa;
+		border: 1px solid #ddd;
+		transition: all .3s ease-out;
+		i{
+			display: inline-block;
+			width: 20px;
+		}
+	}
+
+  // specific stlye for the toggle link
+	>a.toggle{
+		position: relative;
+		z-index: 100;
+		backface-visibility: hidden;
+		transform-style: preserve-3d;
+		transform-origin: 50% 0%;
+		transition: .1s linear;
+		&:active{
+			transform: rotateX(60deg);
+      &:after{
+        transform: rotateX(180deg);
+      }
+		}
+    &:before,
+    &:after{
+      content: "";
+      position: absolute;
+    }
+		&:before{
+			right: 25px;
+			top: 50%;
+      margin-top: -2.5px;
+      border-left: 6px solid transparent;
+	    border-right: 6px solid transparent;
+	    border-top: 6px solid rgba(0,0,0,.8);
+		}
+    &.active{
+      &:before{
+        transform: rotate(180deg);
+      }
+    }
+	}
+  // Card Items
+	>a.toggle+div{
+		position: absolute;
+		height: 100%;
+		top: 0;
+		display: block;
+		width: 100%;
+    a{
+      margin: 0 auto;
+			transition: all .3s ease-out;
+			position: absolute;
+			top: 0;
+			z-index: 0;
+			width:100%;
+      border-top: none;
+      &:hover{
+			  background-color: lighten($primary, 5%);
+			  color: lighten($primary, 44%);
+		  }
+      &.active{
+				color: #fff;
+				background-color: darken($primary, 5%);
+				cursor: default;
+			}
+    }
+		&.closed{
+			a:hover{
+				cursor: default;
+				background-color: $primary;
+			}
+		}
+	}
+}

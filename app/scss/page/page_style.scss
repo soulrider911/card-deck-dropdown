@@ -1,0 +1,70 @@
+@import "reset";
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600);
+
+// ////////////////////////////////////////////
+// Page Styling
+// ////////////////////////////////////////////
+*{
+	box-sizing: border-box;
+}
+body{
+	background-color: #ecf0f1;
+  font-family: 'Source Sans Pro', sans-serif;
+	font-size: 1em;
+
+}
+.container{
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+header{
+  padding: 3.5rem 10%;
+  background-color: #fff;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  svg{
+    max-width: 50px;
+    display: inline-block;
+    fill: #1abc9c;
+     vertical-align: middle;
+  }
+  h1, h2, p{
+    color: #2c3e50;
+    margin-bottom: 1rem;
+  }
+  h1{
+    font-weight: 300;
+    color: #1abc9c;
+    letter-spacing: -0.2rem;
+    font-size: 4rem;
+    text-shadow:0 1px 0 rgba(255,255,255,.8);
+  }
+  h2{
+    font-size: 1.5rem;
+    margin-bottom: 0;
+    span{
+      font-weight: 300;
+      display: inlie-block;
+      padding: 0 8px;
+      font-size: 80%;
+      color: #fff;
+      border-radius: 4px;
+      &.js{
+        background-color: #E4A128;
+      }
+      &.css{
+        background-color: #0070BB;
+      }
+      &.heart{
+        background-color: #EB304A;
+      }
+    }
+  }
+}
+p{
+  line-height:1.8;
+  text-align: left;
+  font-weight: 300;
+  font-size: 1.2rem;
+}
