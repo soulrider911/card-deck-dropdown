@@ -27,28 +27,15 @@
 <div class="container">
 	<div class="card-drop">
 		<a class='toggle' href="#">
-				<i class='fa fa-suitcase'></i>
-			  <span>Everyting</span>
+				<i class='fa fa-hand-pointer-o'></i>
+			  <span>Common Hand Gestures</span>
 		</a>
 		<div>
-	    <a href="#"><i class='fa fa-suitcase'></i> Everyting</a>
-			<a href="#"><i class='fa fa-magic'></i> Design</a>
-			<a href="#"><i class='fa fa-bolt'></i> UI-UX</a>
-	    <a href="#"><i class='fa fa-tint'></i> Print</a>
-			<a href="#"><i class='fa fa-camera-retro'></i> Phtography</a>
-    </div>
-	</div>
-  <br>
-  <div class="card-drop drop-2">
-		<a class='toggle' href="#">
-				<i class='fa fa-suitcase'></i>
-			  <span>Everyting</span>
-		</a>
-		<div>
-	    <a href="#"><i class='fa fa-suitcase'></i> Everyting</a>
-			<a href="#"><i class='fa fa-magic'></i> Design</a>
-			<a href="#"><i class='fa fa-bolt'></i> UI-UX</a>
-	    <a href="#"><i class='fa fa-tint'></i> Print</a>
+	    <a href="#"><i class='fa fa-hand-peace-o'></i> Peace man!</a>
+			<a href="#"><i class='fa fa-hand-scissors-o'></i> Cut it out</a>
+			<a href="#"><i class='fa fa-hand-spock-o'></i> Spock on bra</a>
+	    <a href="#"><i class='fa fa-hand-rock-o'></i> Pound it son!</a>
+			<a href="#"><i class='fa fa-hand-stop-o'></i> Hold up!</a>
     </div>
 	</div>
 </div>
@@ -58,20 +45,11 @@
     $(function(){
         $('.card-drop').card_drop({
           stackHeight : 3,
-          explicitHeight: true,
-          updateTitle: false,
-          cardSize: "large",
-          theme: "red"
+          explicitHeight: false,
+          updateTitle: true,
+          addClass: "large",
         });
       });
-
-      $(function(){
-          $('.drop-2').card_drop({
-            stackHeight : 5,
-            cardSize: "small",
-            theme: "green"
-          });
-        });
   </script>
 </body>
 </html>

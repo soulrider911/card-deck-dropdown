@@ -1,10 +1,8 @@
-
-
 // ////////////////////////////////////////////
 // Card Deck
 // ////////////////////////////////////////////
 $primary: #3498db;
-$size: 60px;
+
 .card-drop{
 	transition: height .3s ease-out;
 	position: relative;
@@ -15,6 +13,7 @@ $size: 60px;
 	a{
 		display: block;
 		width: 100%;
+		$size: 60px;
 		padding:0px $size / 2.5 0 $size / 2.5;
 		height: $size;
     line-height: $size;
@@ -39,6 +38,9 @@ $size: 60px;
 		transition: .1s linear;
 		&:active{
 			transform: rotateX(60deg);
+			&:before{
+        transform: rotate(180deg);
+      }
       &:after{
         transform: rotateX(180deg);
       }
@@ -56,11 +58,6 @@ $size: 60px;
 	    border-right: 6px solid transparent;
 	    border-top: 6px solid rgba(0,0,0,.8);
 		}
-    &.active{
-      &:before{
-        transform: rotate(180deg);
-      }
-    }
 	}
   // Card Items
 	>a.toggle+div{
@@ -77,15 +74,7 @@ $size: 60px;
 			z-index: 0;
 			width:100%;
       border-top: none;
-      &:hover{
-			  background-color: lighten($primary, 5%);
-			  color: lighten($primary, 44%);
-		  }
-      &.active{
-				color: #fff;
-				background-color: darken($primary, 5%);
-				cursor: default;
-			}
+
     }
 		&.closed{
 			a:hover{
@@ -93,5 +82,47 @@ $size: 60px;
 				background-color: $primary;
 			}
 		}
+	}
+	&.active a.toggle+div{
+		a{
+			&:hover,
+			&.active{
+				color: #fff;
+			  background-color: lighten($primary, 5%);
+			  color: lighten($primary, 44%);
+		  }
+      &.active{
+				cursor: default;
+			}
+		}
+	}
+	// Themes
+	&.dark{
+		a{
+			background-color:#3A3D44;
+			border-color: #222;
+			color: saturate(lighten($primary, 10%), 10%);
+		}
+		&.active a.toggle+div a{
+			&:hover,
+			&.active{
+			  background-color: darken($primary, 5%);
+		  }
+		}
+	}
+	// Sizes
+	&.small a{
+		$size: 40px;
+		padding:0px $size / 2.5 0 $size / 2.5;
+		height: $size;
+    line-height: $size;
+		font-size: 80%;
+	}
+	&.large a{
+		$size: 80px;
+		padding:0px $size / 2.5 0 $size / 2.5;
+		height: $size;
+    line-height: $size;
+		font-size: 120%;
 	}
 }

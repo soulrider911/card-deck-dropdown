@@ -42,6 +42,12 @@
           transform: rotateX(60deg);
 }
 
+.card-drop > a.toggle:active:before {
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
 .card-drop > a.toggle:active:after {
   -webkit-transform: rotateX(180deg);
           transform: rotateX(180deg);
@@ -62,12 +68,6 @@
   border-top: 6px solid rgba(0, 0, 0, 0.8);
 }
 
-.card-drop > a.toggle.active:before {
-  -webkit-transform: rotate(180deg);
-      -ms-transform: rotate(180deg);
-          transform: rotate(180deg);
-}
-
 .card-drop > a.toggle + div {
   position: absolute;
   height: 100%;
@@ -86,18 +86,43 @@
   border-top: none;
 }
 
-.card-drop > a.toggle + div a:hover {
+.card-drop > a.toggle + div.closed a:hover {
+  cursor: default;
+  background-color: #3498db;
+}
+
+.card-drop.active a.toggle + div a:hover,
+.card-drop.active a.toggle + div a.active {
+  color: #fff;
   background-color: #4aa3df;
   color: #f3f9fd;
 }
 
-.card-drop > a.toggle + div a.active {
-  color: #fff;
-  background-color: #258cd1;
+.card-drop.active a.toggle + div a.active {
   cursor: default;
 }
 
-.card-drop > a.toggle + div.closed a:hover {
-  cursor: default;
-  background-color: #3498db;
+.card-drop.dark a {
+  background-color: #3A3D44;
+  border-color: #222;
+  color: #56b0ec;
+}
+
+.card-drop.dark.active a.toggle + div a:hover,
+.card-drop.dark.active a.toggle + div a.active {
+  background-color: #258cd1;
+}
+
+.card-drop.small a {
+  padding: 0px 16px 0 16px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 80%;
+}
+
+.card-drop.large a {
+  padding: 0px 32px 0 32px;
+  height: 80px;
+  line-height: 80px;
+  font-size: 120%;
 }

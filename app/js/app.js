@@ -9,12 +9,11 @@
 			stackHeight : null,
 			explicitHeight: false,
 			upateTitle: true,
-			theme: null,
-			cardSize: null,
+			addClass: null,
 			complete : null
 		}, options);
 
-		return this.each( function(){
+		return this.each( function (){
 			// Set global variables
 			var card = $(this),
 					toggler = card.children("a.toggle"),
@@ -24,12 +23,12 @@
 
 
 				//Height Options: small | Medium:default | Large
-				if( settings.cardSize ){
-					$(this).addClass(settings.cardSize);
+				if( settings.addClass ){
+					card.addClass(settings.addClass);
 				}
 				//Theme Options: Blue:default | Green | Red | add more via css!
 				if( settings.theme ){
-					$(this).addClass(settings.theme);
+					card.removeClass("large, small").addClass(settings.theme);
 				}
 
 				// Set z-Index of card items and invert
@@ -37,6 +36,7 @@
 					$(this).css("z-index" , count - i);
 				});
 
+				// For setting and Explicit Height
 				var containerHeight = 0;
 				cards.each(function(){
 				    containerHeight += $(this).outerHeight() + 10;
@@ -55,7 +55,6 @@
 							$(this).css("top" , index * settings.stackHeight )
 						}
 					});
-					cards.addClass('closed');
 					card.removeClass("active");
 				}
 				setClosed();
@@ -66,14 +65,15 @@
 			toggler.on("mousedown" , function(){
 				var $this = $(this);
 				// If the menu is active:
-				if(card.is("active")){
+				if($this.parent().is(".active")){
 					setClosed();
+					console.log("closing")
 				}else{
+					console.log("opening")
 					// If the menu is inactive:
-					card.addClass("active");
-					cards.removeClass('closed');
+					$this.parent().addClass("active");
 
-					// If esxlicit height set
+					// If explicit height set
 					if( settings.explicitHeight === true ){
 							card.css("height" , containerHeight );
 					}
